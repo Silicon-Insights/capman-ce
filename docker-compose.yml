@@ -1,0 +1,49 @@
+services:
+  postgres:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-capman}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-capman}
+      POSTGRES_DB: ${POSTGRES_DB:-modelsdb}
+    ports:
+      - "127.0.0.1:${POSTGRES_HOST_PORT:-5434}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres-init:/docker-entrypoint-initdb.d:ro
+
+  capman:
+    image: ${CAPMAN_IMAGE}
+    platform: linux/amd64
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    environment:
+      HOME: /data
+      CAPMAN_LICENSE_API_BASE: ${CAPMAN_LICENSE_API_BASE:-}
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      CLAUDE_API_KEY: ${CLAUDE_API_KEY:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      MODELS_DB_HOST: postgres
+      MODELS_DB_PORT: "5432"
+      MODELS_DB_NAME: ${MODELS_DB_NAME:-modelsdb}
+      MODELS_DB_USER: ${POSTGRES_USER:-capman}
+      MODELS_DB_PASSWORD: ${POSTGRES_PASSWORD:-capman}
+      PUBLISH_DB_HOST: postgres
+      PUBLISH_DB_PORT: "5432"
+      PUBLISH_DB_NAME: ${PUBLISH_DB_NAME:-publishdb}
+      PUBLISH_DB_USER: ${POSTGRES_USER:-capman}
+      PUBLISH_DB_PASSWORD: ${POSTGRES_PASSWORD:-capman}
+      ACTUALS_DB_HOST: postgres
+      ACTUALS_DB_PORT: "5432"
+      ACTUALS_DB_NAME: ${ACTUALS_DB_NAME:-actualsdb}
+      ACTUALS_DB_USER: ${POSTGRES_USER:-capman}
+      ACTUALS_DB_PASSWORD: ${POSTGRES_PASSWORD:-capman}
+    ports:
+      - "127.0.0.1:${CAPMAN_HOST_PORT:-8060}:8050"
+    volumes:
+      - ./capman-data:/data
+
+volumes:
+  postgres_data:
