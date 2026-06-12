@@ -1,0 +1,2 @@
+CREATE DATABASE publishdb;
+CREATE DATABASE actualsdb;
