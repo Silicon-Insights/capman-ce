@@ -1,14 +1,14 @@
-# CAPMAN-CE
+# Capacity Manager (CE)
 
-> By downloading, installing, or using CAPMAN-CE, you agree to the terms of the [End User Licence Agreement](capman-ce-eula.md).
+> By downloading, installing, or using Capacity Manager (CE), you agree to the terms of the [End User Licence Agreement](capman-ce-eula.md).
 
-This bundle runs CAPMAN CE locally on a single machine with Docker.
+This bundle runs Capacity Manager (CE) locally on a single machine with Docker.
 
-CAPMAN-CE is the Community Edition of the product. It is provided under
+Capacity Manager (CE) is the Community Edition of the product. It is provided under
 a free licence and offers a standalone tool for forecast development
 and analytics, including Compute and People resource forecasting.
 
-CAPMAN-Pro is the commercially licensable product available from
+Capacity Manager (Pro) is the commercially licensable product available from
 Silicon Insights Limited. It is targeted at enterprise-level use cases,
 including integration into agentic systems and the operational
 integration of CAPMAN into wider enterprise demands for capacity
@@ -22,14 +22,14 @@ It starts:
 
 ## Prerequisites
 
-Install these before running CAPMAN-CE:
+Install these before running Capacity Manager (CE):
 
-- Git, for cloning and updating the CAPMAN-CE repository.
-- Docker Engine or Docker Desktop, for running the CAPMAN-CE containers.
+- Git, for cloning and updating the `capman-ce` repository.
+- Docker Engine or Docker Desktop, for running the Capacity Manager (CE) containers.
 - Docker Compose, available as `docker compose`.
 - A POSIX-compatible shell for running `install-capman.sh`, `start-capman.sh`, and `update-capman.sh`.
 - Network access to `github.com`, `raw.githubusercontent.com`, and `ghcr.io`.
-- Outbound HTTPS access to Silicon Insights licensing and registration services if CAPMAN-CE licence activation is enabled for your release.
+- Outbound HTTPS access to Silicon Insights licensing and registration services if Capacity Manager (CE) licence activation is enabled for your release.
 
 Supported local environments:
 
@@ -40,7 +40,7 @@ Supported local environments:
 
 ## Install And Run
 
-Clone the CAPMAN-CE repository:
+Clone the Capacity Manager (CE) repository:
 
 ```bash
 git clone https://github.com/Silicon-Insights/capman-ce.git
@@ -49,13 +49,13 @@ sh ./install-capman.sh
 ```
 
 On Windows, run these commands in **Git Bash**. You do not need to use
-WSL just to run the CAPMAN-CE installer. If Docker Desktop itself
+WSL just to run the Capacity Manager (CE) installer. If Docker Desktop itself
 requires WSL2 on your machine, follow the Docker Desktop setup steps
-first and then return to Git Bash for the CAPMAN-CE install.
+first and then return to Git Bash for the Capacity Manager (CE) install.
 
 `install-capman.sh` creates `.env` from `.env.example` if needed, prompts
-for the local CAPMAN-CE settings it needs, stores them in `.env`, and
-then starts CAPMAN-CE.
+for the local Capacity Manager (CE) settings it needs, stores them in `.env`, and
+then starts Capacity Manager (CE).
 
 `install-capman.sh` checks for Docker and Docker Compose before it starts. If they are not installed, it stops and prints setup guidance for the current operating system.
 
@@ -71,7 +71,7 @@ http://localhost:8070/home
 
 ## Restart An Existing Installation
 
-If CAPMAN-CE is already configured and you just want to start it again:
+If Capacity Manager (CE) is already configured and you just want to start it again:
 
 ```bash
 cd capman-ce
@@ -83,18 +83,18 @@ containers without prompting for setup questions again.
 
 ## Licence Activation
 
-If licence activation is enabled for your CAPMAN-CE release, the app opens on an activation screen before the main UI.
+If licence activation is enabled for your Capacity Manager (CE) release, the app opens on an activation screen before the main UI.
 
 To request a key:
 
 1. Open `http://localhost:8070/home`.
 2. In `Request a Key`, enter your name and email address. Company and intended use are optional.
 3. Submit the request.
-4. CAPMAN-CE should email your licence key automatically to the address you entered.
+4. Capacity Manager (CE) should email your licence key automatically to the address you entered.
 5. If the key does not arrive after a short delay, check your spam folder and then contact Silicon Insights support.
 
-The CAPMAN-CE licence granted for this edition is a free licence. It is
-still subject to the CAPMAN-CE EULA and any activation or usage limits
+The Capacity Manager (CE) licence granted for this edition is a free licence. It is
+still subject to the Capacity Manager (CE) EULA and any activation or usage limits
 defined for the release.
 
 To activate:
@@ -104,13 +104,13 @@ To activate:
 3. Enter the same email address used for the request.
 4. Click `Activate`.
 
-After a successful activation, CAPMAN-CE stores the local licence state in the CAPMAN settings directory and should reopen normally on the same machine and browser without asking you to activate again.
+After a successful activation, Capacity Manager (CE) stores the local licence state in the CAPMAN settings directory and should reopen normally on the same machine and browser without asking you to activate again.
 
 Other activation actions:
 
 - `Retry Validation` revalidates the stored key against the Silicon Insights licensing service.
 - `Request Renewal` submits a renewal request from the activation screen and notifies both Silicon Insights support and the requester so the renewal can be actioned from the CAPMAN admin dashboard.
-- `Sign out` in CAPMAN-CE standalone mode releases the saved local licence state where the release endpoint is enabled and returns the app to the activation screen so a different request or key can be used.
+- `Sign out` in Capacity Manager (CE) standalone mode releases the saved local licence state where the release endpoint is enabled and returns the app to the activation screen so a different request or key can be used.
 
 ## Upgrade To The Latest Release
 
@@ -149,13 +149,13 @@ docker compose down
 
 ## Notes
 
-- `CAPMAN_LICENSE_API_BASE` points CAPMAN-CE at the Silicon Insights licensing/admin service for licence request, activation, validation, and optional deactivation.
-- Where CAPMAN-CE online registration and licence activation are enabled, the app may make outbound HTTPS requests to Silicon Insights licensing and registration services.
+- `CAPMAN_LICENSE_API_BASE` points Capacity Manager (CE) at the Silicon Insights licensing/admin service for licence request, activation, validation, and optional deactivation.
+- Where Capacity Manager (CE) online registration and licence activation are enabled, the app may make outbound HTTPS requests to Silicon Insights licensing and registration services.
 - Some local firewalls, endpoint protection tools, or corporate proxy environments may require outbound allow-listing for those licensing and registration requests.
 - After successful activation, a release may continue to run using cached local licence state for a limited grace period if the licensing service is temporarily unreachable.
-- A successful activation is tied to the local CAPMAN-CE runtime on that machine. Moving the installation to another machine or clearing the local CAPMAN data may require reactivation.
+- A successful activation is tied to the local Capacity Manager (CE) runtime on that machine. Moving the installation to another machine or clearing the local CAPMAN data may require reactivation.
 - The app runs in local standalone mode and serves the main UI directly from `/`.
 - Change `CAPMAN_HOST_PORT` in `.env` if you want to use a different host port.
 - The CAPMAN workspace is stored in `./capman-data`.
 - The Postgres database is stored in the Docker volume `postgres_data`.
-- Docker Scout currently reports two high-severity advisories for the pinned `ollama==0.6.2` dependency in the CAPMAN-CE runtime image: `CVE-2025-66959` and `CVE-2025-66960`. At the time of writing there is no confirmed fixed upstream release, so treat this as a temporary accepted risk unless you can remove or isolate the Ollama-backed feature set from the runtime image.
+- Docker Scout currently reports two high-severity advisories for the pinned `ollama==0.6.2` dependency in the Capacity Manager (CE) runtime image: `CVE-2025-66959` and `CVE-2025-66960`. At the time of writing there is no confirmed fixed upstream release, so treat this as a temporary accepted risk unless you can remove or isolate the Ollama-backed feature set from the runtime image.
