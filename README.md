@@ -11,7 +11,7 @@ and analytics, including Compute and People resource forecasting.
 Capacity Manager (Pro) is the commercially licensable product available from
 Silicon Insights Limited. It is targeted at enterprise-level use cases,
 including integration into agentic systems and the operational
-integration of CAPMAN into wider enterprise demands for capacity
+integration of Capacity Manager into wider enterprise demands for capacity
 planning and management across product development roadmaps and
 enterprise resource estates.
 
@@ -59,7 +59,7 @@ then starts Capacity Manager (CE).
 
 `install-capman.sh` checks for Docker and Docker Compose before it starts. If they are not installed, it stops and prints setup guidance for the current operating system.
 
-CAPMAN does not support mobile platforms. Larger screens are preferable.
+Capacity Manager does not support mobile platforms. Larger screens are preferable.
 Use on a smaller tablet-type screen may be acceptable in some cases,
 but the application is not optimized for that form factor.
 
@@ -104,12 +104,12 @@ To activate:
 3. Enter the same email address used for the request.
 4. Click `Activate`.
 
-After a successful activation, Capacity Manager (CE) stores the local licence state in the CAPMAN settings directory and should reopen normally on the same machine and browser without asking you to activate again.
+After a successful activation, Capacity Manager (CE) stores the local licence state in the Capacity Manager settings directory and should reopen normally on the same machine and browser without asking you to activate again.
 
 Other activation actions:
 
 - `Retry Validation` revalidates the stored key against the Silicon Insights licensing service.
-- `Request Renewal` submits a renewal request from the activation screen and notifies both Silicon Insights support and the requester so the renewal can be actioned from the CAPMAN admin dashboard.
+- `Request Renewal` submits a renewal request from the activation screen and notifies both Silicon Insights support and the requester so the renewal can be actioned from the Capacity Manager admin dashboard.
 - `Sign out` in Capacity Manager (CE) standalone mode releases the saved local licence state where the release endpoint is enabled and returns the app to the activation screen so a different request or key can be used.
 
 ## Upgrade To The Latest Release
@@ -153,9 +153,9 @@ docker compose down
 - Where Capacity Manager (CE) online registration and licence activation are enabled, the app may make outbound HTTPS requests to Silicon Insights licensing and registration services.
 - Some local firewalls, endpoint protection tools, or corporate proxy environments may require outbound allow-listing for those licensing and registration requests.
 - After successful activation, a release may continue to run using cached local licence state for a limited grace period if the licensing service is temporarily unreachable.
-- A successful activation is tied to the local Capacity Manager (CE) runtime on that machine. Moving the installation to another machine or clearing the local CAPMAN data may require reactivation.
+- A successful activation is tied to the local Capacity Manager (CE) runtime on that machine. Moving the installation to another machine or clearing the local Capacity Manager data may require reactivation.
 - The app runs in local standalone mode and serves the main UI directly from `/`.
 - Change `CAPMAN_HOST_PORT` in `.env` if you want to use a different host port.
-- The CAPMAN workspace is stored in `./capman-data`.
+- The Capacity Manager workspace is stored in `./capman-data`.
 - The Postgres database is stored in the Docker volume `postgres_data`.
 - Docker Scout currently reports two high-severity advisories for the pinned `ollama==0.6.2` dependency in the Capacity Manager (CE) runtime image: `CVE-2025-66959` and `CVE-2025-66960`. At the time of writing there is no confirmed fixed upstream release, so treat this as a temporary accepted risk unless you can remove or isolate the Ollama-backed feature set from the runtime image.
