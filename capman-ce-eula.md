@@ -1,8 +1,8 @@
-# CAPMAN-CE Community Edition End User Licence Agreement (EULA)
+# Capacity Manager (CE) Community Edition End User Licence Agreement (EULA)
 
 Effective date: the date you first download, install, access, or use the Software.
 
-Please read this End User Licence Agreement carefully. By downloading, installing, accessing, or using CAPMAN-CE, you agree to be bound by this Agreement. If you do not agree to these terms, do not use the Software.
+Please read this End User Licence Agreement carefully. By downloading, installing, accessing, or using Capacity Manager (CE), you agree to be bound by this Agreement. If you do not agree to these terms, do not use the Software.
 
 This Agreement is between:
 
@@ -12,12 +12,12 @@ This Agreement is between:
 ## 1. Interpretation
 
 1. In this Agreement:
-2. "**Community Edition**" means the community edition of Silicon Insights' CAPMAN software made available under this Agreement.
+2. "**Community Edition**" means the community edition of Silicon Insights' Capacity Manager software made available under this Agreement.
 3. "**Confidential Information**" means the non-public design, technology, source code, object code, know-how, trade secrets and other non-public information relating to the Software and provided by Silicon Insights, together with the terms of this Agreement.
 4. "**Feedback**" means all suggestions, comments, feedback, ideas, or know-how, whether oral or written, that you provide to Silicon Insights in respect of the Software.
 5. "**Intellectual Property Rights**" means any patents, patent applications, trademarks, trade names, service marks, trade secrets, know-how, registered designs, applications for any of the foregoing, copyright including rights in computer software, database rights, unregistered design rights and any other similar protected rights in any country.
 6. "**Permitted Use**" means your internal business use of the Community Edition for your own forecasting, analytics, modelling, and related production or non-production activities.
-7. "**Software**" means CAPMAN-CE, including the object-code software, any supporting documentation provided with it, and any Third-Party Software distributed with it.
+7. "**Software**" means Capacity Manager (CE), including the object-code software, any supporting documentation provided with it, and any Third-Party Software distributed with it.
 8. "**Third-Party Licence File**" means any additional terms and conditions supplied with the Software relating to Third-Party Software.
 9. "**Third-Party Software**" means any third-party software distributed with or used in connection with the Software, including open source software, freeware, and commercial software.
 
@@ -46,7 +46,7 @@ This Agreement is between:
    c. use the Software on behalf of, or for the benefit of, a third party as a bureau, managed service, or outsourced service offering;
    d. remove, obscure, or alter any copyright, trademark, licence, or proprietary notice contained in the Software; or
    e. use the Software in violation of any applicable law or regulation.
-2. The Community Edition is intended for individual-user use. If you require multi-user, team, or enterprise deployment, that requires a separate CAPMAN-Pro or CAPMAN-Server offering and a separate commercial agreement if applicable.
+2. The Community Edition is intended for individual-user use. If you require multi-user, team, or enterprise deployment, that requires a separate Capacity Manager (Pro) offering and a separate commercial agreement if applicable.
 
 ## 5. Ownership
 
