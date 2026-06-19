@@ -137,6 +137,16 @@ This keeps your existing:
 docker compose down
 ```
 
+## Uninstall
+
+To remove the local Capacity Manager (CE) stack and its local data from this bundle directory:
+
+```bash
+sh ./uninstall-capman.sh
+```
+
+`uninstall-capman.sh` stops and removes the Compose project, deletes the local `./capman-data` directory, removes the default Postgres volume for the bundle, and deletes `.env` after confirmation.
+
 ## Files
 
 - `docker-compose.yml`
@@ -144,6 +154,7 @@ docker compose down
 - `install-capman.sh`
 - `start-capman.sh`
 - `update-capman.sh`
+- `uninstall-capman.sh`
 - `postgres-init/01-capman-databases.sql`
 - `capman-ce-eula.md`
 
@@ -157,5 +168,5 @@ docker compose down
 - The app runs in local standalone mode and serves the main UI directly from `/`.
 - Change `CAPMAN_HOST_PORT` in `.env` if you want to use a different host port.
 - The Capacity Manager workspace is stored in `./capman-data`.
-- The Postgres database is stored in the Docker volume `postgres_data`.
+- The Postgres database is stored in the Docker volume `capman-ce_postgres_data` when using the default Compose project name `capman-ce`.
 - Docker Scout currently reports two high-severity advisories for the pinned `ollama==0.6.2` dependency in the Capacity Manager (CE) runtime image: `CVE-2025-66959` and `CVE-2025-66960`. At the time of writing there is no confirmed fixed upstream release, so treat this as a temporary accepted risk unless you can remove or isolate the Ollama-backed feature set from the runtime image.
