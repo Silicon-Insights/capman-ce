@@ -23,6 +23,7 @@ compose() {
 }
 
 NEW_IMAGE_LINE="$(grep '^CAPMAN_IMAGE=' .env.example | tail -n 1 || true)"
+NEW_PROJECT_LINE="$(grep '^COMPOSE_PROJECT_NAME=' .env.example | tail -n 1 || true)"
 
 if [ -z "$NEW_IMAGE_LINE" ]; then
   echo "CAPMAN_IMAGE was not found in .env.example"
@@ -31,8 +32,17 @@ fi
 
 TMP_ENV="$(mktemp "${TMPDIR:-/tmp}/capman-env.XXXXXX")"
 
-awk -v new_image="$NEW_IMAGE_LINE" '
-BEGIN { replaced = 0 }
+awk -v new_image="$NEW_IMAGE_LINE" -v new_project="$NEW_PROJECT_LINE" '
+BEGIN { replaced = 0; project_replaced = 0 }
+/^COMPOSE_PROJECT_NAME=/ {
+  if (new_project != "") {
+    print new_project
+    project_replaced = 1
+  } else {
+    print
+  }
+  next
+}
 /^CAPMAN_IMAGE=/ {
   if (!replaced) {
     print new_image
@@ -42,6 +52,9 @@ BEGIN { replaced = 0 }
 }
 { print }
 END {
+  if (new_project != "" && !project_replaced) {
+    print new_project
+  }
   if (!replaced) {
     print new_image
   }
