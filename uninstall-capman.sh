@@ -15,7 +15,7 @@ compose() {
   if [ -f .env ]; then
     if command -v docker-compose >/dev/null 2>&1; then
       docker-compose --env-file .env "$@"
-    elif docker --help 2>/dev/null | grep -q '[[:space:]]compose[[:space:]]'; then
+    elif docker compose version >/dev/null 2>&1; then
       docker compose --env-file .env "$@"
     else
       echo "Neither docker compose nor docker-compose is available."
@@ -24,7 +24,7 @@ compose() {
   else
     if command -v docker-compose >/dev/null 2>&1; then
       docker-compose "$@"
-    elif docker --help 2>/dev/null | grep -q '[[:space:]]compose[[:space:]]'; then
+    elif docker compose version >/dev/null 2>&1; then
       docker compose "$@"
     else
       echo "Neither docker compose nor docker-compose is available."
