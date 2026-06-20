@@ -59,7 +59,7 @@ check_compose() {
   if command -v docker-compose >/dev/null 2>&1; then
     return 0
   fi
-  if docker --help 2>/dev/null | grep -q '[[:space:]]compose[[:space:]]'; then
+  if docker compose version >/dev/null 2>&1; then
     return 0
   fi
   echo "Docker Compose is required but was not found."
