@@ -131,6 +131,19 @@ This keeps your existing:
 - `./capman-data`
 - `postgres_data`
 
+## Roll Back To A Build
+
+Pass the required numeric build number to the rollback script:
+
+```bash
+sh ./rollback-capman.sh 2949
+```
+
+The script keeps the current CE version, changes only its build number, pulls
+the requested image before replacing the running application container, and
+restores `.env` if that image cannot be pulled. Database and workspace data are
+not removed.
+
 ## Stop
 
 ```bash
@@ -154,6 +167,7 @@ sh ./uninstall-capman.sh
 - `install-capman.sh`
 - `start-capman.sh`
 - `update-capman.sh`
+- `rollback-capman.sh`
 - `uninstall-capman.sh`
 - `postgres-init/01-capman-databases.sql`
 - `capman-ce-eula.md`
