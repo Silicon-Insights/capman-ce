@@ -1,6 +1,6 @@
 # Capacity Manager (CE)
 
-> By downloading, installing, or using Capacity Manager (CE), you agree to the terms of the [End User Licence Agreement](capman-ce-eula.md).
+> By downloading, installing, or using Capacity Manager (CE), you agree to the terms of the [licence](LICENSE.md).
 
 This bundle runs Capacity Manager (CE) locally on a single machine with Docker.
 
@@ -170,7 +170,7 @@ sh ./uninstall-capman.sh
 - `rollback-capman.sh`
 - `uninstall-capman.sh`
 - `postgres-init/01-capman-databases.sql`
-- `capman-ce-eula.md`
+- `LICENSE.md`
 
 ## Notes
 
